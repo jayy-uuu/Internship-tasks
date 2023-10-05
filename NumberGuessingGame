@@ -1,0 +1,42 @@
+
+import java.util.*;
+
+public class NumberGuessingGame { 
+	public static void NGG() {
+		Scanner sc=new Scanner(System.in);
+		int number=1+(int)(100*Math.random());
+		int t=5;
+		int i,guess;
+		int maxPoints=100;
+		int points=maxPoints;
+        System.out.println("Welcome to the Number Guessing Game!!!");
+		System.out.println("A number is choosen between 1 to 100."+"\nGuess the number within 5 trials...");
+		
+		for(i=0;i<t;i++) {
+			System.out.println("Attempt "+(i+1)+" \nGuess the number:");
+			guess=sc.nextInt();
+			if(number==guess) {
+				System.out.println("Congratulations!!"+"You guessed the number "+number+" correctly.");
+				points= maxPoints /t;
+				 System.out.println("You scored " + points + " points.");
+				break;
+			}
+			else if(number>guess && i!=t-1) {
+				System.out.println("The number is greater than " +guess);
+			}
+			else if(number<guess && i!=t-1) {
+				System.out.println("The number is lesser than " +guess);
+			}
+		}
+		if(i==t) {
+			System.out.println("Sorry,You have exhausted all "+t+ " trials.\nThe number was "+number);
+			 System.out.println("You scored 0 points.");
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		NGG();
+	}
+
+}
